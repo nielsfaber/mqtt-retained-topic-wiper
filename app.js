@@ -12,6 +12,7 @@ var base_topic = myArgs[2];
 var client = mqtt.connect('mqtt://127.0.0.1');
 var count = 0;
 client.on('connect', () => {
+  client.subscribe(`${base_topic}`);
   client.subscribe(`${base_topic}/#`);
   console.log(`listening for retained topics on ${base_topic}...`);
   setTimeout(() => {
